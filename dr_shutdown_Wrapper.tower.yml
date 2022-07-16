@@ -20,7 +20,14 @@
 
    - name: runNEW {{ mainScript_localpath }}/{{ mainScript_name }} script on the remote target servers
      #ansible.builtin.script:
-     ansible.builtin.shell: cat dr_shutdown_Wrapper.sh  >> `pwd`/{{ mainScript_out }}
+     # ansible.builtin.shell: cat dr_shutdown_Wrapper.sh  >> `pwd`/{{ mainScript_out }}
+     ansible.builtin.copy:
+       src: dr_shutdown_Wrapper.sh 
+       dest: /tmp/dr_shutdown_Wrapper.sh.TEST
+       owner: foo
+       group: foo
+       mode: '0777'      
+
 
          # cmd: /{{ mainScript_localpath }}/{{ mainScript_name }} {{ runcommands }} > /tmp/{{ mainScript_out }}
          # cmd: dr_shutdown_Wrapper.sh {{ runcommands }} > /tmp/{{ mainScript_out }}

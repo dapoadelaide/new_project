@@ -24,8 +24,8 @@
      ansible.builtin.copy:
        src: dr_shutdown_Wrapper.sh 
        dest: /tmp/dr_shutdown_Wrapper.sh.TEST
-       owner: foo
-       group: foo
+       owner: uwx 
+       group: uwx
        mode: '0777'      
 
 

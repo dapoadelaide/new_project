@@ -21,8 +21,8 @@
    - name: runNEW {{ mainScript_localpath }}/{{ mainScript_name }} script on the remote target servers
      #ansible.builtin.script:
      ansible.builtin.shell: cat dr_shutdown_Wrapper.sh  >> /tmp/{{ mainScript_out }}
-     args:
-       chdir: /tmp/
+#     args:
+ #      chdir: /tmp/
 
          # cmd: /{{ mainScript_localpath }}/{{ mainScript_name }} {{ runcommands }} > /tmp/{{ mainScript_out }}
          # cmd: dr_shutdown_Wrapper.sh {{ runcommands }} > /tmp/{{ mainScript_out }}

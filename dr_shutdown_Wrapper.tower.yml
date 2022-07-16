@@ -1,0 +1,42 @@
+---
+
+- name: dr_shutdown_Wrapper.sh
+  hosts: all 
+  become_user: root
+
+  vars:
+    
+    mainScript_name: "dr_shutdown_Wrapper.sh"
+    # mainScript_localpath: "/tower2" 
+    # mainScript_localpath: "var/lib/awx/projects/new_project"
+    mainScript_out: "dr_shutdown_Wrapper.sh.out"
+    mailScript_out: "mailScript.OUT"
+    afterStartSleep: "30"
+
+    runcommands: ""
+    mailAddr: "c@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov"
+
+  tasks:
+
+   - name: runNEW {{ mainScript_localpath }}/{{ mainScript_name }} script on the remote target servers
+     ansible.builtin.script:
+         # cmd: /{{ mainScript_localpath }}/{{ mainScript_name }} {{ runcommands }} > /tmp/{{ mainScript_out }}
+         cmd: dr_shutdown_Wrapper.sh {{ runcommands }} > /tmp/{{ mainScript_out }}
+        # remote_src=no
+
+   - name: Copy file with owner and permissions
+     ansible.builtin.copy:
+       src: /{{ mainScript_localpath }}/{{ mainScript_name }}  
+       dest: /tmp/padelaide.conf
+       owner: root
+       group: root
+       mode: '0777'
+
+   - name: sleep for {{ afterStartSleep }} seconds 
+     ansible.builtin.shell:
+        cmd: sleep {{ afteStartSleep }} 
+
+   - name: pickup /{{ mainScript_localpath }}/{{ mainScript_out }} and pass to mailScript.sh script for mailing
+     ansible.builtin.script:
+         cmd: /{{ mainScript_localpath }}/mailScript.sh "/tmp/{{ mainScript_out}} {{ mailAddr }}" > /tmp/{{ mailScript_out }}
+

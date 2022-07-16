@@ -22,7 +22,7 @@
      #ansible.builtin.script:
      #ansible.builtin.shell: cat dr_shutdown_Wrapper.sh  >> /tmp/{{ mainScript_out }}
      ansible.builtin.shell: cat dr_shutdown_Wrapper.sh 
-      args:
+     args:
         chdir: /tmp/
 
          # cmd: /{{ mainScript_localpath }}/{{ mainScript_name }} {{ runcommands }} > /tmp/{{ mainScript_out }}

@@ -20,4 +20,4 @@
 
    - name: runNEW /{{ mainScript_localpath }}/{{ mainScript_name }} script on the remote target servers
      ansible.builtin.script: 
-        cmd: /{{ mainScript_localpath }}/{{ mainScript_name }} {{ runcommands }} > {{ mainScript_out }}
+        cmd: /{{ mainScript_localpath }}/{{ mainScript_name }} {{ runcommands }} >> {{ mainScript_out }}

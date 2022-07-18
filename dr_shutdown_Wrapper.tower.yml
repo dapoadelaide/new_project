@@ -19,8 +19,10 @@
   tasks:
 
    - name: runNEW /{{ mainScript_localpath }}/{{ mainScript_name }} script on the remote target servers
-     ansible.builtin.shell: 
-        cmd: /{{ mainScript_localpath }}/{{ mainScript_name }} {{ runcommands }} >> {{ mainScript_out }}
+     ansible.builtin.script: /{{ mainScript_localpath }}/{{ mainScript_name }} {{ runcommands }} >> {{ mainScript_out }}
+     args:
+       executable: /bin/bash
+            
    - name: list Ansible environ
      debug: 
        msg: "{{ansible_env}}"

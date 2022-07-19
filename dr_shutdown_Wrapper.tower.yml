@@ -2,7 +2,7 @@
 
 - name: dr_shutdown_Wrapper.sh
   hosts: all 
-  # become_user: root 
+  become_user: root 
 
   vars:
     

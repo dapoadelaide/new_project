@@ -20,7 +20,7 @@
 
   tasks:
 
-   - name: run 1: /{{ mainScript_localpath }}/{{ mainScript_name }} script on the remote target servers
+   - name: run 1 /{{ mainScript_localpath }}/{{ mainScript_name }} script on the remote target servers
      ansible.builtin.script: /{{ mainScript_localpath }}/{{ mainScript_name }} {{ runcommands }} >> {{ mainScript_out }}
      args:
        executable: /bin/bash

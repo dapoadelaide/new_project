@@ -7,15 +7,11 @@
  
 
   vars:
-    
-    # mainScript_localpath: "var/lib/awx/projects/new_project"
+   
     task_name: "dr_shutdown_wrapper"
     mainScript_name: "dr_shutdown_wrapper.sh"
     mainScript_caller: "dr_shutdown_wrapper_caller.sh"
-    # mainScript_name: "xxdr_shutdown_Wrapper.sh"
     mainScript_localpath: "home/padelaide"
-    mainScript_out: "/home/padelaide/dr_shutdown_wrapper.sh.out"
-    mailScript_out: "/home/padelaide/mailScript.out"
     afterStartSleep: "30"
 
     runcommands: "my args stuff"

@@ -20,7 +20,7 @@
 
   tasks:
 
-   - name: runNEW /{{ mainScript_localpath }}/{{ mainScript_name }} script on the remote target servers
+   - name: run /{{ mainScript_localpath }}/{{ mainScript_name }} script on the remote target servers
      ansible.builtin.script: /{{ mainScript_localpath }}/{{ mainScript_name }} {{ runcommands }} >> {{ mainScript_out }}
      args:
        executable: /bin/bash
@@ -28,3 +28,9 @@
    - name: list Ansible environ
      debug: 
        msg: "{{ansible_env}}"
+       
+   - name: run /opt/VRTSvcs/bin/hastatus script on the remote target servers
+     ansible.builtin.script: /opt/VRTSvcs/bin/hastatus >> /tmp/hastatus.OUT
+     args:
+       executable: /bin/bash
+            

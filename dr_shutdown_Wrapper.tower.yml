@@ -9,7 +9,7 @@
   vars:
    
     task_name: "dr_shutdown_wrapper"
-    task_zip: "dr_shutdown_wrapper.zip"
+    task_zip: "dr_shutdown_wrapper.tar"
     mainScript_name: "dr_shutdown_wrapper.sh"
     mainScript_caller: "dr_shutdown_wrapper_caller.sh"
     mainScript_localpath: "home/padelaide"

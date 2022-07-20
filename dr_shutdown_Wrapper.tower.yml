@@ -20,7 +20,7 @@
 
   tasks:
 
-   - name: copy {{ mainScript_localpath }}/{{ mainScript_name }} to remote hosts
+   - name: Copy {{ mainScript_localpath }}/{{ task_zip }} to remote hosts
      ansible.builtin.copy: 
        # src: /{{ mainScript_localpath }}/{{ mainScript_name }}
        src: /{{ mainScript_localpath }}/{{ task_zip }}
@@ -29,7 +29,7 @@
        group: root
        mode: '0777'
      
-   - name: run 1. /{{ mainScript_localpath }}/{{ mainScript_caller }} script on the remote target servers
+   - name: Run /{{ mainScript_localpath }}/{{ mainScript_caller }} script on the remote target servers
      ansible.builtin.script: /{{ mainScript_localpath }}/{{ mainScript_caller }} {{ runcommands }}
      args:
         executable: /bin/bash
@@ -37,10 +37,4 @@
   #  - name: list Ansible environ
   #   debug: 
   #     msg: "{{ansible_env}}"
-       
-   #- name: run #2: /opt/VRTSvcs/bin/hastatus script on the remote target servers
-   #  ansible.builtin.shell: /opt/VRTSvcs/bin/hastatus
-   #  args:
-   #   executable: /bin/bash
-  
-            
+     

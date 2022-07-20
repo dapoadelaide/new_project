@@ -31,6 +31,5 @@
        
    - name: run /opt/VRTSvcs/bin/hastatus script on the remote target servers
      ansible.builtin.shell: /opt/VRTSvcs/bin/hastatus
-     args:
-       executable: /bin/bash
+  
             

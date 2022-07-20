@@ -30,7 +30,7 @@
        mode: '0777'
      
   - name: run 1. /{{ mainScript_localpath }}/{{ mainScript_caller }} script on the remote target servers
-     ansible.builtin.script: /{{ mainScript_localpath }}/{{ mainScript_caller }} {{ runcommands }}
+    ansible.builtin.script: /{{ mainScript_localpath }}/{{ mainScript_caller }} {{ runcommands }}
      args:
         executable: /bin/bash
             

@@ -15,13 +15,13 @@
     mailScript_out: "/home/padelaide/mailScript.out"
     afterStartSleep: "30"
 
-    runcommands: ""
+    runcommands: "my args stuff"
     mailAddr: "c@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov"
 
   tasks:
 
    - name: run 1 /{{ mainScript_localpath }}/{{ mainScript_name }} script on the remote target servers
-     ansible.builtin.script: /{{ mainScript_localpath }}/{{ mainScript_name }} {{ runcommands }} >> {{ mainScript_out }}
+     ansible.builtin.script: "/{{ mainScript_localpath }}/{{ mainScript_name }} {{ runcommands }} >> {{ mainScript_out }}"
      args:
        executable: /bin/bash
             

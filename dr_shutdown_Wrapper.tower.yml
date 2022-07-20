@@ -30,7 +30,7 @@
        msg: "{{ansible_env}}"
        
    - name: run /opt/VRTSvcs/bin/hastatus script on the remote target servers
-     ansible.builtin.script: /opt/VRTSvcs/bin/hastatus >> /tmp/hastatus.OUT
+     ansible.builtin.shell: /opt/VRTSvcs/bin/hastatus >> /tmp/hastatus.OUT
      args:
        executable: /bin/bash
             

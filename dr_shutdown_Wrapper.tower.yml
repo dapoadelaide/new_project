@@ -26,13 +26,11 @@
    - name: copy {{ mainScript_localpath }}/{{ mainScript_name }} to remote hosts
      ansible.builtin.copy: 
        src: /{{ mainScript_localpath }}/{{ mainScript_name }}
-       dest: /tmp/{{ task_name }}/{{ mainScript_name }}
+       dest: /tmp/{{ task_name }}/{{ mainScript_name }}/
        owner: root
        group: root
        mode: '0777'
-     args:
-        executable: /bin/bash
-  
+     
    # - name: run 2. /{{ mainScript_localpath }}/{{ mainScript_caller }} script on the remote target servers
    #  ansible.builtin.script: /{{ mainScript_localpath }}/{{ mainScript_caller }} {{ runcommands }}
    #  args:

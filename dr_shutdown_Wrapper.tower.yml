@@ -9,6 +9,7 @@
   vars:
    
     task_name: "dr_shutdown_wrapper"
+    task_zip: "dr_shutdown_wrapper.zip"
     mainScript_name: "dr_shutdown_wrapper.sh"
     mainScript_caller: "dr_shutdown_wrapper_caller.sh"
     mainScript_localpath: "home/padelaide"
@@ -21,16 +22,17 @@
 
    - name: copy {{ mainScript_localpath }}/{{ mainScript_name }} to remote hosts
      ansible.builtin.copy: 
-       src: /{{ mainScript_localpath }}/{{ mainScript_name }}
+       # src: /{{ mainScript_localpath }}/{{ mainScript_name }}
+       src: /{{ mainScript_localpath }}/{{ task_zip }}
        dest: /tmp/{{ task_name }}/
        owner: root
        group: root
        mode: '0777'
      
-   - name: run 1. /{{ mainScript_localpath }}/{{ mainScript_caller }} script on the remote target servers
-     ansible.builtin.script: /{{ mainScript_localpath }}/{{ mainScript_caller }} {{ runcommands }}
-     args:
-         executable: /bin/bash
+  # - name: run 1. /{{ mainScript_localpath }}/{{ mainScript_caller }} script on the remote target servers
+  #   ansible.builtin.script: /{{ mainScript_localpath }}/{{ mainScript_caller }} {{ runcommands }}
+  #   args:
+  #       executable: /bin/bash
             
   #  - name: list Ansible environ
   #   debug: 

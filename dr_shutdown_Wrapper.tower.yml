@@ -9,7 +9,8 @@
   vars:
     
     # mainScript_localpath: "var/lib/awx/projects/new_project"
-    mainScript_name: "dr_shutdown_wrapper_caller.sh"
+    mainScript_name: "dr_shutdown_wrapper.sh"
+    mainScript_caller: "dr_shutdown_wrapper_caller.sh"
     # mainScript_name: "xxdr_shutdown_Wrapper.sh"
     mainScript_localpath: "home/padelaide"
     mainScript_out: "/home/padelaide/dr_shutdown_wrapper.sh.out"
@@ -21,8 +22,13 @@
 
   tasks:
 
-   - name: run 1 /{{ mainScript_localpath }}/{{ mainScript_name }} script on the remote target servers
-     ansible.builtin.script: /{{ mainScript_localpath }}/{{ mainScript_name }} {{ runcommands }}
+   #- name: run 1. {{ mainScript_localpath }}/{{ mainScript_name }} to remote hosts
+    # ansible.builtin.shell: /opt/VRTSvcs/bin/hastatus
+     #args:
+     #executable: /bin/bash
+  
+   - name: run 2. /{{ mainScript_localpath }}/{{ mainScript_caller }} script on the remote target servers
+     ansible.builtin.script: /{{ mainScript_localpath }}/{{ mainScript_caller }} {{ runcommands }}
      args:
        executable: /bin/bash
             

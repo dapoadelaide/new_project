@@ -8,8 +8,8 @@
 
   vars:
    
-    task_name: "dr_shutdown_wrapper"
-    task_zip: "dr_shutdown_wrapper.tar"
+    task_name: "dr_shutdown"
+    task_tar: "dr_shutdown_wrapper.tar"
     mainScript_name: "dr_shutdown_wrapper.sh"
     mainScript_caller: "dr_shutdown_wrapper_caller.sh"
     mainScript_localpath: "home/padelaide"
@@ -20,10 +20,10 @@
 
   tasks:
 
-   - name: Copy {{ mainScript_localpath }}/{{ task_zip }} to remote hosts
+   - name: Copy {{ mainScript_localpath }}/{{ task_tar }} to remote hosts
      ansible.builtin.copy: 
        # src: /{{ mainScript_localpath }}/{{ mainScript_name }}
-       src: /{{ mainScript_localpath }}/{{ task_zip }}
+       src: /{{ mainScript_localpath }}/{{ task_tar }}
        dest: /tmp/{{ task_name }}/
        owner: root
        group: root

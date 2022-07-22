@@ -1,6 +1,6 @@
 ---
 
-- name: run2task_param.sh
+- name: run2task_param.yml
   hosts: all
 
 ####

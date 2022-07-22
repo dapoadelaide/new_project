@@ -13,7 +13,7 @@
     mainScript_name: "run2task_param.sh"
     mainScript_caller: "run2task_wrapper_caller.sh"
     mainScript_localpath: "home/padelaide"
-    mainScript_remotepath: /tmp/{{ task_name }}
+    mainScript_remotepath: "tmp/{{ task_name }}
     
     inputCommands: "testing inputCommands"
     logFile: "testing logFile"
@@ -23,22 +23,22 @@
    - name: Copy /{{ mainScript_localpath }}/{{ task_zip }} over to remote target server
      ansible.builtin.copy:
        src: /{{ mainScript_localpath }}/{{ task_zip }}
-       dest: /tmp/{{ task_name }}/
+       dest: /{{ mainScript_remotepath }}/
        owner: root
        group: root
        mode: u+rwx
 
    - name: Untar /{{ mainScript_localpath }}/{{ task_zip }} over to remote target server
-     ansible.builtin.shell: tar xvf /tmp/{{ task_name }}/{{ task_zip }}
+     ansible.builtin.shell: tar xvf /{{ mainScript_remotepath }}/{{ task_zip }}
      args:
-       chdir: /tmp/{{ task_name }
+       chdir: /{{ mainScript_remotepath }}
      
-   - name: Run /tmp/{{ task_name }}/{{ run2task_param.sh }} script on the remote target servers
-     ansible.builtin.shell: /tmp/{{ task_name }}/{{ run2task_param.sh }} {{ task_name }}
+   - name: Run /{{ mainScript_remotepath }}/{{ run2task_param.sh }} script on the remote target servers
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ run2task_param.sh }} {{ task_name }}
      args:
        executable: /bin/bash
        
    - name: Run /tmp/{{ task_name }}/{{ run2task_param.sh }} script on the remote target servers
-     ansible.builtin.shell: /tmp/{{ task_name }}/{{ run2task_param.sh }} {{ task_name }}
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ run2task_param.sh }} {{ task_name }}
      args:
        executable: /bin/bash    

@@ -16,6 +16,7 @@
     mainScript_remotepath: "tmp/{{ task_name }}
     
     mailScript_name: "mailScript.sh"
+    log_ext: "_reportOut"
     
     inputCommands: "testing inputCommands"
     logFile: "/tmp/{{ task_name }}.reportOut"
@@ -42,6 +43,6 @@
        executable: /bin/bash
        
    - name: Run /{{ mainScript_remotepath }}/{{ mailScript_name }} script on the remote target servers
-     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} {{ mailAddr }} {{ logFile }}  ??????? to continue here to figure out redoing mailScript??
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} {{ mailAddr }} {{ logFile }}  >> {{ mailScript_name }}{{ log_ext }}
      args:
        executable: /bin/bash    

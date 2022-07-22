@@ -8,7 +8,7 @@
   vars:
 
     task_name: "run2task_param"
-    task_zip: "run2task_yml_wrapper.tar"
+    task_zip: "run2task_param_wrapper.tar"
 
     mainScript_name: "run2task_param.sh"
     mainScript_caller: "run2task_wrapper_caller.sh"

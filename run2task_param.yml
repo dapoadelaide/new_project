@@ -19,7 +19,7 @@
     mailScript_name: "mailScript.sh"
     log_ext: "_reportOut"
     
-    inputCommands: "testing inputCommands"
+    inputCommands: "testing inputCommands:cd /tmp; ls -ltr /tmp:whoami:ls -ltr /var"
     logFile: "/tmp/{{ task_name }}.reportOut"
     mailAddr: "testing@padela.com"
   

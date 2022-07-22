@@ -14,7 +14,7 @@
     mainScript_name: "run2task.sh"
     # mainScript_caller: "run2task_wrapper_caller.sh"
     mainScript_localpath: "home/padelaide"
-    mainScript_remotepath: "tmp/{{ task_name }}
+    mainScript_remotepath: "tmp/{{ task_name }}"
     
     mailScript_name: "mailScript.sh"
     log_ext: "_reportOut"

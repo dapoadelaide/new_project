@@ -121,13 +121,10 @@ done
 
 echo "Command[s] arrayed: [${inputCommands[@]}]"
 
-
 echo "sleeping 10"
 sleep 10
 
-
- 
-p=0
+ p=0
 f=0
 for cmd in "${inputCommands[@]}" ; do
         echo ""

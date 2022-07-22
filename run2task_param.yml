@@ -15,8 +15,11 @@
     mainScript_localpath: "home/padelaide"
     mainScript_remotepath: "tmp/{{ task_name }}
     
+    mailScript_name: "mailScript.sh"
+    
     inputCommands: "testing inputCommands"
-    logFile: "testing logFile"
+    logFile: "/tmp/{{ task_name }}.reportOut"
+    mailAddr: "testing addresses"
   
   tasks:
 
@@ -33,12 +36,12 @@
      args:
        chdir: /{{ mainScript_remotepath }}
      
-   - name: Run /{{ mainScript_remotepath }}/{{ run2task_param.sh }} script on the remote target servers
-     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ run2task_param.sh }} {{ task_name }}
+   - name: Run /{{ mainScript_remotepath }}/{{ mainScript_name }} script on the remote target servers
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mainScript_name }} {{ task_name }} >> {{ logFile }}
      args:
        executable: /bin/bash
        
-   - name: Run /tmp/{{ task_name }}/{{ run2task_param.sh }} script on the remote target servers
-     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ run2task_param.sh }} {{ task_name }}
+   - name: Run /{{ mainScript_remotepath }}/{{ mailScript_name }} script on the remote target servers
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} {{ mailAddr }}
      args:
        executable: /bin/bash    

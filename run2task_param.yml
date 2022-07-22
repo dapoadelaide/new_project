@@ -8,10 +8,11 @@
   vars:
 
     task_name: "run2task_param"
-    task_zip: "run2task_param_wrapper.tar"
+    task_zip: "run2task_param.tar"
 
-    mainScript_name: "run2task_param.sh"
-    mainScript_caller: "run2task_wrapper_caller.sh"
+    # mainScript_name: "run2task_param.sh"
+    mainScript_name: "run2task.sh"
+    # mainScript_caller: "run2task_wrapper_caller.sh"
     mainScript_localpath: "home/padelaide"
     mainScript_remotepath: "tmp/{{ task_name }}
     

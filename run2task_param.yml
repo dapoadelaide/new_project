@@ -7,7 +7,7 @@
 
   vars:
 
-    task_name: "run2task_yml"
+    task_name: "run2task_param"
     task_zip: "run2task_yml_wrapper.tar"
 
     mainScript_name: "run2task_param.sh"
@@ -19,7 +19,7 @@
     
     inputCommands: "testing inputCommands"
     logFile: "/tmp/{{ task_name }}.reportOut"
-    mailAddr: "testing addresses"
+    mailAddr: "testing@padela.com"
   
   tasks:
 
@@ -37,11 +37,11 @@
        chdir: /{{ mainScript_remotepath }}
      
    - name: Run /{{ mainScript_remotepath }}/{{ mainScript_name }} script on the remote target servers
-     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mainScript_name }} {{ task_name }} >> {{ logFile }}
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mainScript_name }} {{ inputCommands }} >> {{ logFile }}
      args:
        executable: /bin/bash
        
    - name: Run /{{ mainScript_remotepath }}/{{ mailScript_name }} script on the remote target servers
-     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} {{ mailAddr }}
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} {{ mailAddr }} {{ logFile }}  ??????? to continue here to figure out redoing mailScript??
      args:
        executable: /bin/bash    

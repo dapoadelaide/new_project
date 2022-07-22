@@ -22,7 +22,7 @@
        src: /{{ mainScript_localpath }}/{{ task_zip }}
        dest: /tmp/{{ task_name }}/
        owner: root
-       rgroup: root
+       group: root
        mode: u+rwx
 
    - name: Run /{{ mainScript_localpath }}/{{ mainScript_caller }} script on the remote target servers

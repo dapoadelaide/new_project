@@ -10,16 +10,17 @@
    
     task_name: "dr_shutdown_wrapper"
     task_zip: "dr_shutdown_wrapper.tar"
+    tmp_dir: "tmp"
     mainScript_name: "dr_shutdown_wrapper.sh"
     mainScript_basename: "dr_shutdown_wrapper"
     mainScript_localpath: "home/padelaide"
-    mainScript_remotepath: "tmp/{{ task_name }}"
+    mainScript_remotepath: "/{{ tmp_dir }}/{{ task_name }}"
     mailScript_name: "mailScript.sh"
     mailScript_basename: "mailScript"
-    tmp_dir: "tmp"
+    
     afterStartSleep: "30"
     
-    logFile: "/tmp/{{ task_name }}.reportOut"
+    logFile: "/{{ tmp_dir }}/{{ task_name }}.reportOut"
     mailAddr: "c@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov"
 
   tasks:

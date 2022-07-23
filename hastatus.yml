@@ -44,3 +44,4 @@
    - name: Run /{{ mainScript_remotepath }}/{{ mailScript_name }} script on the remote target servers
      ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} "{{ mailAddr }} {{ logFile }}"  >  {{ mailScript_log }}
        executable: /bin/bash    
+

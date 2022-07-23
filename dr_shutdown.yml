@@ -8,14 +8,15 @@
 
   vars:
    
-    task_name: "dr_shutdown"
-    task_zip: "dr_shutdown.tar"
-    mainScript_name: "dr_shutdown.sh"
-    mainScript_basename: "dr_shutdown"
-    
+    task_name: "dr_shutdown_wrapper"
+    task_zip: "dr_shutdown_wrapper.tar"
+    mainScript_name: "dr_shutdown_wrapper.sh"
+    mainScript_basename: "dr_shutdown_wrapper"
     mainScript_localpath: "home/padelaide"
+    mainScript_remotepath: "tmp/{{ task_name }}"
+    mailScript_name: "mailScript.sh"
+    mailScript_basename: "mailScript"
     afterStartSleep: "30"
-
     mailAddr: "c@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov"
 
   tasks:
@@ -35,7 +36,7 @@
        chdir: /{{ mainScript_remotepath }}
      
    - name: Run /{{ mainScript_remotepath }}/{{ mainScript_name }} script on the remote target servers
-     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mainScript_name }} "{{ inputCommands }}" > {{ logFile }}
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mainScript_name }} > {{ logFile }}
      args:
        executable: /bin/bash
        
@@ -43,4 +44,15 @@
      ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} "{{ mailAddr }} {{ logFile }}"  >  /tmp/{{ mailScript_basename }}.{{ task_name }}.reportOut
      args:
        executable: /bin/bash   
-  
+       
+       
+       
+       
+       
+    
+    
+        
+    
+       
+       
+       

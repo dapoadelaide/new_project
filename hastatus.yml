@@ -16,6 +16,7 @@
     logFile: "{{ tmp_dir }}/{{ task_name }}.reportOut"
     mailScript_name: "mailScript.sh"
     mailScript_basename: "mailScript"
+    hastatus_sum: "
     mailScript_log: {{ tmp_dir }}/{{ mailScript_basename }}.{{ task_name }}.reportOut
         
     mailAddr: "testing@padela.com testing@padela.com testing@padela.com testing@padela.com a@a.com b@b.com"
@@ -41,5 +42,5 @@
        executable: /bin/bash
        
    - name: Run /{{ mainScript_remotepath }}/{{ mailScript_name }} script on the remote target servers
-             ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} "{{ mailAddr }} {{ logFile }}"  >  {{ mailScript_log }}
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} "{{ mailAddr }} {{ logFile }}"  >  {{ mailScript_log }}
        executable: /bin/bash    

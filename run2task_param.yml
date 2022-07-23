@@ -17,8 +17,8 @@
     mainScript_remotepath: "tmp/{{ task_name }}"
     
     mailScript_name: "mailScript.sh"
-    log_ext: "_reportOut"
-    
+    mailScript_basename: "mailScript"
+        
     inputCommands: "testing inputCommands:cd /tmp; ls -ltr /tmp:whoami:ls -ltr /var"
     logFile: "/tmp/{{ task_name }}.reportOut"
     mailAddr: "testing@padela.com"
@@ -44,6 +44,6 @@
        executable: /bin/bash
        
    - name: Run /{{ mainScript_remotepath }}/{{ mailScript_name }} script on the remote target servers
-     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} "{{ mailAddr }} {{ logFile }}"  > {{ mailScript_name }}.{{ task_name }}{{ log_ext }}
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} "{{ mailAddr }} {{ logFile }}"  >  /tmp/{{ mailScript_basename }}.{{ task_name }}.reportOut
      args:
        executable: /bin/bash    

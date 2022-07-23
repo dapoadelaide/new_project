@@ -19,9 +19,9 @@
     mailScript_name: "mailScript.sh"
     mailScript_basename: "mailScript"
         
-    inputCommands: "testing inputCommands:cd /tmp; ls -ltr /tmp:whoami:ls -ltr /var"
+    inputCommands: "testing inputCommands:cd /tmp; ls -ltr /tmp:whoami:ls -ltr /var:testing inputCommands:cd /tmp; ls -ltr /tmp:whoami:ls -ltr /var"
     logFile: "/tmp/{{ task_name }}.reportOut"
-    mailAddr: "testing@padela.com"
+    mailAddr: "testing@padela.com testing@padela.com testing@padela.com testing@padela.com a@a.com b@b.com"
   
   tasks:
 

@@ -5,7 +5,6 @@
   become_user: root
   become_method: sudo
  
-
   vars:
    
     task_name: "dr_shutdown_wrapper"

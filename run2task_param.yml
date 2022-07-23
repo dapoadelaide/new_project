@@ -33,7 +33,7 @@
        group: root
        mode: u+rwx
 
-   - name: Untar /{{ mainScript_localpath }}/{{ task_zip }} over to remote target server
+   - name: Untar /{{ mainScript_remotepath }}/{{ task_zip }} on the remote target server
      ansible.builtin.shell: tar xvf /{{ mainScript_remotepath }}/{{ task_zip }}
      args:
        chdir: /{{ mainScript_remotepath }}

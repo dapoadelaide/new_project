@@ -17,7 +17,7 @@
     mailScript_name: "mailScript.sh"
     mailScript_basename: "mailScript"
     hastatus_sum: "opt/VRTSvcs/bin/hastatus -sum"
-    mailScript_log: "{{ tmp_dir }}/{{ mailScript_basename }}.{{ task_name }}.reportOut  
+    mailScript_log: "{{ tmp_dir }}/{{ mailScript_basename }}.{{ task_name }}.reportOut"
     mailAddr: "testing@padela.com testing@padela.com testing@padela.com testing@padela.com a@a.com b@b.com"
   
   tasks:

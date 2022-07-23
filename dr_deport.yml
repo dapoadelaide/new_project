@@ -25,9 +25,7 @@
 
    - name: Copy {{ mainScript_localpath }}/{{ task_zip }} to remote hosts
      ansible.builtin.copy: 
-       # src: /{{ mainScript_localpath }}/{{ mainScript_name }}
        src: /{{ mainScript_localpath }}/{{ task_zip }}
-       # dest: /tmp/{{ task_name }}/
        dest: /{{ mainScript_remotepath }}/
        owner: root
        group: root

@@ -16,7 +16,7 @@
     logFile: "{{ tmp_dir }}/{{ task_name }}.reportOut"
     mailScript_name: "mailScript.sh"
     mailScript_basename: "mailScript"
-    hastatus_sum: "
+    hastatus_sum: "opt/VRTSvcs/bin/hastatus -sum"
     mailScript_log: {{ tmp_dir }}/{{ mailScript_basename }}.{{ task_name }}.reportOut
         
     mailAddr: "testing@padela.com testing@padela.com testing@padela.com testing@padela.com a@a.com b@b.com"
@@ -36,8 +36,8 @@
      args:
        chdir: /{{ mainScript_remotepath }}
      
-   - name: Run /{{ mainScript_remotepath }}/{{ mainScript_name }} script on the remote target servers
-     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mainScript_name }} "{{ inputCommands }}" > {{ logFile }}
+   - name: Run /{{ hastatus -sum}} script on the remote target servers
+     ansible.builtin.shell: /{{  hastatus_sum }} > {{ logFile }}
      args:
        executable: /bin/bash
        

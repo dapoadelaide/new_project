@@ -28,10 +28,15 @@
        owner: root
        group: root
        mode: '0777'
-     
-   - name: Run /{{ mainScript_localpath }}/{{ mainScript_caller }} script on the remote target servers
-     ansible.builtin.shell: /{{ mainScript_localpath }}/{{ mainScript_name }} {{ }}
+        
+   - name: Untar /{{ mainScript_localpath }}/{{ task_zip }} over to remote target server
+     ansible.builtin.shell: tar xvf /{{ mainScript_remotepath }}/{{ task_zip }}
      args:
-        executable: /bin/bash
+       chdir: /{{ mainScript_remotepath }}
+     
+   - name: Run /{{ mainScript_remotepath }}/{{ mainScript_name }} script on the remote target servers
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mainScript_name }} "{{ inputCommands }}" > {{ logFile }}
+     args:
+       executable: /bin/bash
             
   

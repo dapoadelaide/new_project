@@ -16,7 +16,10 @@
     mainScript_remotepath: "tmp/{{ task_name }}"
     mailScript_name: "mailScript.sh"
     mailScript_basename: "mailScript"
+    tmp_dir: "tmp"
     afterStartSleep: "30"
+    
+    logFile: "/tmp/{{ task_name }}.reportOut"
     mailAddr: "c@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov"
 
   tasks:
@@ -25,7 +28,8 @@
      ansible.builtin.copy: 
        # src: /{{ mainScript_localpath }}/{{ mainScript_name }}
        src: /{{ mainScript_localpath }}/{{ task_zip }}
-       dest: /tmp/{{ task_name }}/
+       # dest: /tmp/{{ task_name }}/
+       dest: /{{ mainScript_remotepath }}/
        owner: root
        group: root
        mode: '0777'
@@ -41,7 +45,7 @@
        executable: /bin/bash
        
    - name: Run /{{ mainScript_remotepath }}/{{ mailScript_name }} script on the remote target servers
-     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} "{{ mailAddr }} {{ logFile }}"  >  /tmp/{{ mailScript_basename }}.{{ task_name }}.reportOut
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} "{{ mailAddr }} {{ logFile }}"  >  /{{ tmp_dir }}/{{ mailScript_basename }}.{{ task_name }}.reportOut
      args:
        executable: /bin/bash   
        

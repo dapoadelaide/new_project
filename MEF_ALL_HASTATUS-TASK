@@ -1,0 +1,6 @@
+#!/bin/ksh
+
+# script name: hastatus-sum
+
+echo "Running [/opt/VRTSvcs/bin/hastatus -sum] ..."
+/opt/VRTSvcs/bin/hastatus -sum

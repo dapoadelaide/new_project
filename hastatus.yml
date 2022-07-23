@@ -12,7 +12,7 @@
     tmp_dir: "/tmp"
     mainScript_name: "hastatus.sh"
     mainScript_localpath: "home/padelaide"
-    mainScript_remotepath: "{{ tmp_dir }/{{ task_name }}"
+    mainScript_remotepath: "{{ tmp_dir }}/{{ task_name }}"
     logFile: "{{ tmp_dir }}/{{ task_name }}.reportOut"
     mailScript_name: "mailScript.sh"
     mailScript_basename: "mailScript"

@@ -37,7 +37,7 @@
        chdir: /{{ mainScript_remotepath }}
      
    - name: Run /{{ hastatus -sum}} script on the remote target servers
-     ansible.builtin.shell: /{{  hastatus_sum }} > {{ logFile }}
+     ansible.builtin.shell: /{{ hastatus_sum }} > {{ logFile }}
      args:
        executable: /bin/bash
        

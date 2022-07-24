@@ -39,7 +39,7 @@
        executable: /bin/bash
        
    - name: Run /{{ mainScript_remotepath }}/{{ mailScript_name }} script on the remote target servers
-     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} "{{ mailAddr }} {{ logFile }}"  >  /{{ tmp_dir }}{{ mailScript_basename }}.{{ task_name }}.reportOut
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} "{{ mailAddr }} {{ logFile }}"  >  /{{ tmp_dir }}/{{ mailScript_basename }}.{{ task_name }}.reportOut
      args:
        executable: /bin/bash    
 

@@ -6,8 +6,6 @@
   become_user: root
   become_method: sudo
   
-  # yml: dr_startup.yml
- 
   vars:
    
     task_name: "dr_startup_wrapper"

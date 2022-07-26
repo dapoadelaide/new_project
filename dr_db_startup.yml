@@ -1,0 +1,52 @@
+
+---
+
+- name: dr_db_startup.sh
+  hosts: all 
+  become_user: root
+  become_method: sudo
+  
+  vars:
+   
+    task_name: "dr_db_tartup_wrapper"
+    task_zip: "dr_db_startup_wrapper.tar"
+    tmp_dir: "tmp"
+    mainScript_name: "dr_db_startup_wrapper.sh"
+    mainScript_basename: "dr_db_startup_wrapper"
+    mainScript_localpath: "home/padelaide"
+    mainScript_remotepath: "{{ tmp_dir }}/{{ task_name }}"
+    mailScript_name: "mailScript.sh"
+    mailScript_basename: "mailScript"
+    afterStartSleep: "30"
+    logFile: "{{ tmp_dir }}/{{ task_name }}.reportOut"
+    
+    mailAddr: "c@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov"
+
+  tasks:
+
+   - name: Copy {{ mainScript_localpath }}/{{ task_zip }} to remote hosts
+     ansible.builtin.copy: 
+       # src: /{{ mainScript_localpath }}/{{ mainScript_name }}
+       src: /{{ mainScript_localpath }}/{{ task_zip }}
+       # dest: /tmp/{{ task_name }}/
+       dest: /{{ mainScript_remotepath }}/
+       owner: root
+       group: root
+       mode: '0777'
+     
+   - name: Untar /{{ mainScript_remotepath }}/{{ task_zip }} on the remote target server
+     ansible.builtin.shell: tar xvf /{{ mainScript_remotepath }}/{{ task_zip }}
+     args:
+       chdir: /{{ mainScript_remotepath }}
+     
+   - name: Run /{{ mainScript_remotepath }}/{{ mainScript_name }} script on the remote target servers
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mainScript_name }} > /{{ logFile }}
+     args:
+       executable: /bin/bash
+       
+   - name: Run /{{ mainScript_remotepath }}/{{ mailScript_name }} script on the remote target servers
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} "{{ mailAddr }} {{ logFile }}"  >  /{{ tmp_dir }}/{{ mailScript_basename }}.{{ task_name }}.reportOut
+     args:
+       executable: /bin/bash   
+       
+ 

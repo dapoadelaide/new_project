@@ -1,5 +1,5 @@
 #!/bin/bash
-# yml: dr_startup.yml
+# yml: dr_shutdown.yml
 
 # start
 echo ""

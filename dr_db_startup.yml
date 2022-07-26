@@ -1,17 +1,17 @@
 
 ---
 
-- name: dr_db_startup.sh
+- name: dr_db_startup.ksh
   hosts: all 
   become_user: root
   become_method: sudo
   
   vars:
    
-    task_name: "dr_db_tartup_wrapper"
+    task_name: "dr_db_startup_wrapper"
     task_zip: "dr_db_startup_wrapper.tar"
     tmp_dir: "tmp"
-    mainScript_name: "dr_db_startup_wrapper.sh"
+    mainScript_name: "dr_db_startup_wrapper.ksh"
     mainScript_basename: "dr_db_startup_wrapper"
     mainScript_localpath: "home/padelaide"
     mainScript_remotepath: "{{ tmp_dir }}/{{ task_name }}"

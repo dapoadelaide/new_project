@@ -5,6 +5,8 @@
   hosts: all 
   become_user: root
   become_method: sudo
+  
+  # yml: dr_startup.yml
  
   vars:
    

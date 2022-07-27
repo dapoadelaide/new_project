@@ -1,5 +1,5 @@
 #!/bin/ksh
-# dr_deport.yml
+# yml:  dr_deport.yml
 
 # start
 #

@@ -1,5 +1,6 @@
 #!/bin/bash
 # run2task_param.sh
+# yml: run2task_param.yml
 
 #pa - 12/23/2018 updated to email log to the user and other addresses
 #

@@ -1,5 +1,5 @@
 #!/bin/ksh
-# dr_db_shutdown.yml
+# yml: dr_db_shutdown.yml
 
 clear the logfile
 log="/tmp/$0.logfile.`date '+%m%d%Y-%H%M%S'`.txt"

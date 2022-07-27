@@ -33,6 +33,7 @@
      ansible.builtin.shell: tar xvf /{{ mainScript_remotepath }}/{{ task_zip }}
      args:
        chdir: /{{ mainScript_remotepath }}
+       mode: u+rwx
      
    - name: Run /{{ mainScript_remotepath }}/{{ mainScript_name }} script on the remote target servers
      ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mainScript_name }} > {{ logFile }}

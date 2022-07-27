@@ -1,15 +1,15 @@
 ---
 
-- name: mainAdd-Disabled-parasoft-Q.yml
+- name: mainRemove-Disabled-parasoft-Q.yml
   hosts: all
 
-# call: mainAdd-Disabled-parasoft-Q.ksh
+# call: mainRemove-Disabled-parasoft-Q.ksh
 
   vars:
 
-    task_name: "mainAdd-Disabled-parasoft-Q"
-    task_zip: "mainAdd-Disabled-parasoft-Q.tar"
-    mainScript_name: "mainAdd-Disabled-parasoft-Q.ksh"
+    task_name: "mainRemove-Disabled-parasoft-Q"
+    task_zip: "mainRemove-Disabled-parasoft-Q.tar"
+    mainScript_name: "mainRemove-Disabled-parasoft-Q.ksh"
     mainScript_localpath: "home/padelaide"
     mainScript_remotepath: "tmp/{{ task_name }}"
     logFile: "/tmp/{{ task_name }}.reportOut"

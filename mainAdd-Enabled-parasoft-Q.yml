@@ -16,9 +16,9 @@
     logFile: "/tmp/{{ task_name }}.reportOut"
     mailScript_name: "mailScript.sh"
     mailScript_basename: "mailScript"
-        
-    # inputCommands: "testing inputCommands:cd /tmp; ls -ltr /tmp:whoami:ls -ltr /var:testing inputCommands:cd /tmp; ls -ltr /tmp:whoami:ls -ltr /var"
-    # mailAddr: "testing@padela.com testing@padela.com testing@padela.com testing@padela.com a@a.com b@b.com"
+         
+    # mailAddr var to be passed fron Tempelate at launch # 
+    # mailAddr: ""
   
   tasks:
 

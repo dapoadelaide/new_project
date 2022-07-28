@@ -1,15 +1,15 @@
 ---
 
-- name: mainAdd-Disabled-prod-Q.yml
+- name: mainRemove-Disabled-prod-Q.yml
   hosts: all
 
-# call: mainAdd-Disabled-prod-Q.ksh
+# call: mainRemove-Disabled-prod-Q.ksh
 
   vars:
 
-    task_name: "mainAdd-Disabled-prod-Q"
-    task_zip: "mainAdd-Disabled-prod-Q.tar"
-    mainScript_name: "mainAdd-Disabled-prod-Q.ksh"
+    task_name: "mainRemove-Disabled-prod-Q"
+    task_zip: "mmainRemove-Disabled-prod-Q.tar"
+    mainScript_name: "mainRemove-Disabled-prod-Q.ksh"
     mainScript_localpath: "home/padelaide"
     mainScript_remotepath: "tmp/{{ task_name }}"
     logFile: "/tmp/{{ task_name }}.reportOut"

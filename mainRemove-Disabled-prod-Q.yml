@@ -8,7 +8,7 @@
   vars:
 
     task_name: "mainRemove-Disabled-prod-Q"
-    task_zip: "mmainRemove-Disabled-prod-Q.tar"
+    task_zip: "mainRemove-Disabled-prod-Q.tar"
     mainScript_name: "mainRemove-Disabled-prod-Q.ksh"
     mainScript_localpath: "home/padelaide"
     mainScript_remotepath: "tmp/{{ task_name }}"

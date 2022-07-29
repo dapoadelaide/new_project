@@ -17,8 +17,8 @@
     mailScript_name: "mailScript.sh"
     mailScript_basename: "mailScript"
         
-    inputCommands: "PROD svr2 svr3 svr4 svr5 db_svr6 node_svr7 node_svr8 'cfg vars vera vers'"
-    mailAddr: "testing@padela.com testing@padela.com testing@padela.com testing@padela.com a@a.com b@b.com"
+    # inputCommands: "PROD svr2 svr3 svr4 svr5 db_svr6 node_svr7 node_svr8 'cfg vars vera vers'"
+    # mailAddr: "testing@padela.com testing@padela.com testing@padela.com testing@padela.com a@a.com b@b.com"
   
   tasks:
 

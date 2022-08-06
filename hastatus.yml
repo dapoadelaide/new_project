@@ -13,11 +13,11 @@
     mainScript_name: "hastatus.sh"
     mainScript_localpath: "home/padelaide"
     mainScript_remotepath: "{{ tmp_dir }}/{{ task_name }}"
-    logFile: "{{ tmp_dir }}/{{ task_name }}.reportOut"
+    logFile: "/{{ tmp_dir }}/{{ task_name }}.reportOut"
     mailScript_name: "mailScript.sh"
     mailScript_basename: "mailScript"
     hastatus_sum: "opt/VRTSvcs/bin/hastatus -sum"
-    mailScript_log: "{{ tmp_dir }}/{{ mailScript_basename }}.{{ task_name }}.reportOut"
+    mailScript_log: "/{{ tmp_dir }}/{{ mailScript_basename }}.{{ task_name }}.reportOut"
     # mailAddr: "testing@padela.com testing@padela.com testing@padela.com testing@padela.com a@a.com b@b.com"
   
   tasks:
@@ -36,12 +36,12 @@
        chdir: /{{ mainScript_remotepath }}
      
    - name: Run /{{ hastatus -sum}} script on the remote target servers
-     ansible.builtin.shell: /{{ hastatus_sum }} > /{{ logFile }}
+     ansible.builtin.shell: /{{ hastatus_sum }} > {{ logFile }}
      args:
        executable: /bin/bash
        
    - name: Run /{{ mainScript_remotepath }}/{{ mailScript_name }} script on the remote target servers
-     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} "{{ mailAddr }} /{{ logFile }}"  >  /{{ mailScript_log }}
+     ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} "{{ mailAddr }} {{ logFile }}"  >  {{ mailScript_log }}
      args:
        executable: /bin/bash    
 

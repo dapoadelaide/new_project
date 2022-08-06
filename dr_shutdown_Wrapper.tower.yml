@@ -16,8 +16,8 @@
     mainScript_localpath: "home/padelaide"
     afterStartSleep: "30"
 
-    runcommands: "my args stuff"
-    mailAddr: "c@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov"
+    # runcommands: "my args stuff"
+    # mailAddr: "c@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov"
 
   tasks:
 

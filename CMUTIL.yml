@@ -40,6 +40,9 @@
      args:
        executable: /bin/bash
        
+   - name: Sleep for 300 seconds
+     ansible.builtin.shell: sleep 300; ls -ltr /var >> {{ logFile }}
+     
    - name: Run /{{ mainScript_remotepath }}/{{ mailScript_name }} script on the remote target servers
      ansible.builtin.shell: /{{ mainScript_remotepath }}/{{ mailScript_name }} "{{ mailAddr }} {{ logFile }}"  >  /tmp/{{ mailScript_basename }}.{{ task_name }}.reportOut
      args:

@@ -20,7 +20,7 @@
     afterStartSleep: "30"
     logFile: "{{ tmp_dir }}/{{ task_name }}.reportOut"
     
-    mailAddr: "c@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov"
+    # mailAddr: "c@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov a@irs.gov b@irs.gov"
 
   tasks:
 

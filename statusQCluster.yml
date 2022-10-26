@@ -1,16 +1,16 @@
 ---
 
-- name: status-Q.yml
+- name: statusQCluster.yml
   hosts: all
 
-# call: status-Q.ksh
+# call: statusQCluster.ksh
 ####
 
   vars:
 
-    task_name: "status-Q"
-    task_zip: "status-Q.tar"
-    mainScript_name: "status-Q.ksh"
+    task_name: "statusQCluster"
+    task_zip: "statusQCluster.tar"
+    mainScript_name: "statusQCluster.ksh"
     mainScript_localpath: "home/padelaide"
     mainScript_remotepath: "tmp/{{ task_name }}"
     logFile: "/tmp/{{ task_name }}.reportOut"

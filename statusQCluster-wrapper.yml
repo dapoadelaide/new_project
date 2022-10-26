@@ -1,6 +1,6 @@
 ---
 
-- name: statusQCluster.yml
+- name: statusQCluster-wrapper.yml
   hosts: all
 
 # call: statusQCluster-wrapper.ksh

@@ -8,8 +8,8 @@
 
   vars:
 
-    task_name: "statusQCluster"
-    task_zip: "statusQCluster.tar"
+    task_name: "statusQCluster-wrapper"
+    task_zip: "statusQCluster-warpper.tar"
     mainScript_name: "statusQCluster-wrapper.ksh"
     mainScript_localpath: "home/padelaide"
     mainScript_remotepath: "tmp/{{ task_name }}"

@@ -1,6 +1,6 @@
 ---
 
-- name: statusQCluster-parasoft.yml
+- name: statusQCluster-parasoft-wrapper.yml
   hosts: all
 
 # call: statusQCluster-parasoft-wrapper.ksh
@@ -8,8 +8,8 @@
 
   vars:
 
-    task_name: "statusQCluster-parasoft"
-    task_zip: "statusQCluster-parasoft.tar"
+    task_name: "statusQCluster-parasoft-wrapper"
+    task_zip: "statusQCluster-parasoft-wrapper.tar"
     mainScript_name: "statusQCluster-parasoft-wrapper.ksh"
     mainScript_localpath: "home/padelaide"
     mainScript_remotepath: "tmp/{{ task_name }}"
